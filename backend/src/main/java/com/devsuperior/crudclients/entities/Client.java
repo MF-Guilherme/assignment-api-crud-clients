@@ -3,6 +3,7 @@ package com.devsuperior.crudclients.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,18 +19,21 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String cfp;
+	private String cpf;
 	private Double income;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
+	
 	private Integer children;
 
 	public Client() {
 	}
 
-	public Client(Long id, String name, String cfp, Double income, Instant birthDate, Integer children) {
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 		this.id = id;
 		this.name = name;
-		this.cfp = cfp;
+		this.cpf = cpf;
 		this.income = income;
 		this.birthDate = birthDate;
 		this.children = children;
@@ -51,12 +55,12 @@ public class Client implements Serializable {
 		this.name = name;
 	}
 
-	public String getCfp() {
-		return cfp;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCfp(String cfp) {
-		this.cfp = cfp;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Double getIncome() {
